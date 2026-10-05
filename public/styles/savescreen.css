@@ -13,11 +13,11 @@ html, body {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.6);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 100;
+	background-color: rgba(0, 0, 0, 0.6);
 
 	transition: opacity .5s;
 }
@@ -35,8 +35,8 @@ html, body {
 	margin: 0 0 20px 0;
 	font-size: 17px;
 	line-height: 20px;
-	color: white;
 	overflow-wrap: break-word;
+	color: white;
 }
 
 .popup-box button {
@@ -58,7 +58,7 @@ html, body {
 }
 
 
-#logo {
+#fella {
   will-change: transform, filter;
   
   position: absolute;
