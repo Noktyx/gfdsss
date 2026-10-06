@@ -4,11 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>gfdsss</title>
+	<link rel="icon" type="image/png" href="/media/images/favicon.ico">
 	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-	<img id="logo" src="/media/images/fella.webp">
+	<img id="fella" src="/media/images/fella.webp">
 
 	<div id="popup">
 		<div class="popup-box">
@@ -22,13 +23,12 @@
 	<audio id="music" loop preload="auto" muted>
 		<source src="/media/audio/La_Primavera_de_Le_Quattro_Stagioni_di_Vivaldi.mp3" type="audio/mpeg">
 	</audio>
+
 	<script>
 		const music = document.getElementById("music");
 		music.volume = 0.2;
-
 		music.load();
 
-		// Sadly, autoplay is blocked browser unless user explicitly interacts :[
 		const startMusic = () => {
 			music.muted = false;
 			music.play().catch(() => {});
@@ -41,17 +41,12 @@
 			popup.style.opacity = "0";
 			popup.style.pointerEvents = "none";
 
-			popup.addEventListener("transitionend", () => {
-				popup.remove();
-			}, {once: true});
+			popup.addEventListener("transitionend", ()=>{popup.remove();}, {once: true});
 
 			startMusic();
 		};
-
 	</script>
-
 	<script src="/script.js"></script>
 
 </body>
-
 </html>

@@ -1,60 +1,61 @@
-const logo = document.getElementById("logo");
+const fella = document.getElementById("fella");
 
 let speedX = 3;
 let speedY = 3;
-let x = 0;
-let y = 0;
+let xAxisPosition = 0;
+let yAxisPosition = 0;
 
 
 function changeColor() {
 	const hue = Math.random() * 360;
-	logo.style.filter = `sepia(1) saturate(6) hue-rotate(${hue}deg)`;
+	fella.style.filter = `sepia(1) saturate(6) hue-rotate(${hue}deg)`;
 }
 
 
 function animate() {
-	const rect = logo.getBoundingClientRect();
+	const box = fella.getBoundingClientRect();
 	const winWidth = window.innerWidth;
 	const winHeight = window.innerHeight;
 
-	x += speedX;
-	y += speedY;
+	xAxisPosition += speedX;
+	yAxisPosition += speedY;
 
 	// X-Axis
-	if ((x + rect.width) >= winWidth) {
-		x = winWidth - rect.width;
+	if ((xAxisPosition + box.width) >= winWidth) {
+		xAxisPosition = winWidth - box.width;
 		speedX = -Math.abs(speedX);
 		changeColor();
-	} else if (x <= 0) {
-		x = 0;
+	} else if (xAxisPosition <= 0) {
+		xAxisPosition = 0;
 		speedX = Math.abs(speedX);
 		changeColor();
 	}
 
 	// Y-Axis
-	if ((y + rect.height) >= winHeight) {
-		y = winHeight - rect.height;
+	if ((yAxisPosition + box.height) >= winHeight) {
+		yAxisPosition = winHeight - box.height;
 		speedY = -Math.abs(speedY);
 		changeColor();
-	} else if (y <= 0) {
-		y = 0;
+	} else if (yAxisPosition <= 0) {
+		yAxisPosition = 0;
 		speedY = Math.abs(speedY);
 		changeColor();
 	}
 
 
-	logo.style.transform = `translate(${x}px, ${y}px)`;
+	fella.style.transform = `translate(${xAxisPosition}px, ${yAxisPosition}px)`;
 	requestAnimationFrame(animate);
 }
 
 
 function start() {
-	const r = logo.getBoundingClientRect();
-	x = Math.random() * (window.innerWidth - r.width);
-	y = Math.random() * (window.innerHeight - r.height);
+	const box = fella.getBoundingClientRect();
+	xAxisPosition = Math.random() * (window.innerWidth - box.width);
+	yAxisPosition = Math.random() * (window.innerHeight - box.height);
+	
 	requestAnimationFrame(animate);
 }
 
 
-if (logo.complete) start();
-else logo.onload = start;
+if (fella.complete) start();
+else fella.onload = start;
