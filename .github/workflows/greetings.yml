@@ -1,0 +1,16 @@
+name: Greetings & Appreciation
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{secrets.GITHUB_TOKEN}}
+        issue-message: "Greetings, traveller. Thou hast raised thy first issue before the community. Fear not, as thy words have indeed been heard, and the matter shall be considered in due course!"
+        pr-message: "Salutations, kind individual! Thou hast presented thy first contribution unto the community website's codebase; thy contribution shall indeed be considered with due regard for the betterment of our People's website! Should thy pull request be accepted and incorporated into the website, thou shalt indeed receive due credit for thy work. Thou mayest specify the username by which thou wishest to be credited, together with the platform upon which you may want to be found (provided that said platform and its content are not of a NSFW nature)."
