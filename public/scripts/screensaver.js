@@ -3,7 +3,7 @@ const fella = document.getElementById("fella");
 // [pixels/frame]
 let speedX = 3;
 let speedY = 3;
-// Positions are randomised, anyway
+// Positions are randomised in start(), anyway
 let xAxisPosition = 0;
 let yAxisPosition = 0;
 
