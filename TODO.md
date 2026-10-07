@@ -6,7 +6,7 @@ What is informally known as a "TO-DO list".
 
 ## Of Importance
 
-[ ]
+[ ] Add delta time to screensaver animation.
 
 ---
 

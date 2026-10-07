@@ -1,7 +1,9 @@
 const fella = document.getElementById("fella");
 
+// [pixels/frame]
 let speedX = 3;
 let speedY = 3;
+// Positions are randomised, anyway
 let xAxisPosition = 0;
 let yAxisPosition = 0;
 
@@ -22,10 +24,12 @@ function animate() {
 
 	// X-Axis
 	if ((xAxisPosition + box.width) >= winWidth) {
+	    // Right wall
 		xAxisPosition = winWidth - box.width;
-		speedX = -Math.abs(speedX);
+		speedX = -(Math.abs(speedX));
 		changeColor();
 	} else if (xAxisPosition <= 0) {
+	    // Left wall
 		xAxisPosition = 0;
 		speedX = Math.abs(speedX);
 		changeColor();
@@ -33,10 +37,12 @@ function animate() {
 
 	// Y-Axis
 	if ((yAxisPosition + box.height) >= winHeight) {
+	    // Bottom wall
 		yAxisPosition = winHeight - box.height;
-		speedY = -Math.abs(speedY);
+		speedY = -(Math.abs(speedY));
 		changeColor();
 	} else if (yAxisPosition <= 0) {
+	    // Top wall
 		yAxisPosition = 0;
 		speedY = Math.abs(speedY);
 		changeColor();
@@ -59,3 +65,4 @@ function start() {
 
 if (fella.complete) start();
 else fella.onload = start;
+
